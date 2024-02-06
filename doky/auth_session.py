@@ -127,3 +127,41 @@ class AuthSession:
         # Returning the OAuth URL.
         return oauth_url
 
+    def get_me(self) -> dict:
+        """
+        Bound method that requests for current user session informations.
+
+        Returns:
+            Current user session informations.
+
+        Return Example:
+            ```python3
+            {
+                'id': 'XXXXXX',
+                'name': 'd3cryptofc',
+                'provider_user_id': '1000XXX',
+                'avatar': 'https://avatars.io/twitter/d3cryptofc',
+                'provider': 'docker',
+                'email': 'd3cryptofc@gmail.com',
+                'banned': False
+            }
+            ```
+
+        Raises:
+            httpx.HTTPStatusError:
+                Bad response HTTP status code.
+        """
+        # Requesting for current user session informations.
+        request = self._http_client.get('/users/me')
+
+        try:
+            # Raise if response status code is bad.
+            request.raise_for_status()
+        except httpx.HTTPStatusError as exception:
+            # Adding an exception message note.
+            exception.add_note('\n' + errors.OPEN_AN_ISSUE)
+            # Raising the same exception again.
+            raise
+
+        # Returning the current user session informations.
+        return request.json()
