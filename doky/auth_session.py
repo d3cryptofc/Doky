@@ -1,4 +1,7 @@
 from typing import List
+from urllib.parse import quote as urlencode
+from http import HTTPStatus
+
 import httpx
 
 from . import metadatas, errors
@@ -72,4 +75,55 @@ class AuthSession:
 
         # Returning providers list.
         return request.json()
+
+    @staticmethod
+    def request_oauth_url(provider: str = 'docker') -> str:
+        """
+        Static method that requests an OAuth URL to a provider.
+
+        Parameters:
+            provider:
+                The OAuth available provider.
+
+        Returns:
+            The OAuth URL for authentication.
+
+        Return Example:
+            ```
+            https://login.docker.com/authorize/?client_id=XXXXXX&nonce=XXXXXX&redirect_uri=XXXXXX&response_type=code&scope=XXXXXX&state=XXXXXX
+            ```
+
+        Raises:
+            RuntimeError: Some unexpected error.
+        """
+        # Checking if the `provider` parameter is a string type.
+        if not isinstance(provider, str):
+            raise errors.type_error(('provider', provider), str)
+
+        # Creating a http client session and requesting OAuth URL from the
+        # provider specified.
+        request = create_http_client().get(
+            url='/oauth/providers/' + urlencode(provider) + '/login',
+            follow_redirects=False
+        )
+
+        # Raise an exception if the response status code is not 302 FOUND.
+        if request.status_code != HTTPStatus.FOUND:
+            raise RuntimeError(
+                'The authentication provider endpoint is not redirecting, '
+                'perhaps it is broken.\n\n' + errors.OPEN_AN_ISSUE
+            )
+
+        # Getting OAuth URL from redirect header Location.
+        oauth_url = request.headers.get('Location')
+
+        # Raise an exception if the redirect header location doesn't exists.
+        if not oauth_url:
+            raise RuntimeError(
+                'It appears that the server is not returning the '
+                'authentication URL.\n\n' + errors.OPEN_AN_ISSUE
+            )
+
+        # Returning the OAuth URL.
+        return oauth_url
 
