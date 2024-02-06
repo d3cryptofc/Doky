@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "doky"
+version = "0.1.0"
+description = "Doky is a intuitive library and CLI tool for manage your Docker-In-Docker instances from Play With Docker Lab"
+repository = "https://github.com/d3cryptofc/Doky"
+authors = ["Lelzin λ <d3cryptofc@gmail.com>"]
+readme = "README.md"
+license = "MIT"
+include = ["pyproject.toml"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+httpx = {extras = ["http2"], version = "^0.26.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
