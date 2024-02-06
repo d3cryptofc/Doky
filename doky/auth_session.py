@@ -1,3 +1,4 @@
+from typing import List
 import httpx
 
 from . import metadatas, errors
@@ -39,4 +40,36 @@ class AuthSession:
 
         # Using the same cookie from navigator.
         self._http_client.cookies['id'] = session_id
+
+    @staticmethod
+    def get_providers() -> List[str]:
+        """
+        Static method that requests for a list of available providers.
+
+        Returns:
+            List of available providers.
+
+        Return Example:
+            ```python3
+            ['docker']
+            ```
+
+        Raises:
+            httpx.HTTPStatusError:
+                Bad response HTTP status code.
+        """
+        # Creating a http client session and requesting for a providers list.
+        request = create_http_client().get('/oauth/providers')
+
+        try:
+            # Raise if response status code is bad.
+            request.raise_for_status()
+        except httpx.HTTPStatusError as exception:
+            # Adding an exception message note.
+            exception.add_note('\n' + errors.OPEN_AN_ISSUE)
+            # Raising the same exception again.
+            raise
+
+        # Returning providers list.
+        return request.json()
 
