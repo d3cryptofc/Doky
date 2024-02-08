@@ -12,6 +12,7 @@ include = ["pyproject.toml"]
 python = "^3.11"
 httpx = {extras = ["http2"], version = "^0.26.0"}
 click = "^8.1.7"
+rich = "^13.7.0"
 
 [build-system]
 requires = ["poetry-core"]
