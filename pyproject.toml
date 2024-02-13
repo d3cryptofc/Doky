@@ -18,6 +18,11 @@ appdirs = "^1.4.4"
 [tool.poetry.scripts]
 doky = "doky.__main__:main"
 
+[tool.poetry.group.dev.dependencies]
+mkdocs = "^1.5.3"
+mkdocs-material = "^9.5.9"
+mkdocstrings-python = "^1.8.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
