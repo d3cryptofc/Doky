@@ -1,0 +1,34 @@
+site_name: Doky
+site_description: "Doky is a intuitive library and CLI tool for manage your Docker-In-Docker instances from Play With Docker Lab"
+repo_url: https://github.com/d3cryptofc/Doky
+copyright: Copyright &copy; 2024 Lelzin λ
+
+theme:
+  name: material
+  language: en
+
+  features:
+    - navigation.footer
+    - header.autohide
+    - content.code.copy
+
+  palette:
+    scheme: slate
+    primary: black
+    accent: deep blue
+
+nav:
+  - index.md
+  - quickstart.md
+  - reference.md
+
+plugins:
+  - search
+  - mkdocstrings
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - md_in_html
