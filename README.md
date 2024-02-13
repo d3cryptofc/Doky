@@ -10,21 +10,10 @@
 </p>
 
 <p align="center">
-  <a href="LICENSE.md">
-    <img src="https://img.shields.io/github/license/d3cryptofc/doky?color=1e90ff">
-  </a>
-  
-  <a href="https://pypi.org/project/doky/">
-    <img src="https://img.shields.io/pypi/dm/doky?color=1e90ff">
-  </a>
-  
-  <a href="https://pypi.org/project/doky/">
-    <img src="https://img.shields.io/pypi/v/doky?color=1e90ff">
-  </a>
-  
-  <a href="https://d3cryptofc.github.io/Doky">
-    <img src="https://img.shields.io/badge/Documentation-1e90ff">
-  </a>
+  <a href="LICENSE.md"><img src="https://img.shields.io/github/license/d3cryptofc/doky?color=1e90ff"></a>
+  <a href="https://pypi.org/project/doky/"><img src="https://img.shields.io/pypi/dm/doky?color=1e90ff"></a>
+  <a href="https://pypi.org/project/doky/"><img src="https://img.shields.io/pypi/v/doky?color=1e90ff"></a>
+  <a href="https://d3cryptofc.github.io/Doky"><img src="https://img.shields.io/badge/Documentation-1e90ff"></a>
 </p>
 
 
