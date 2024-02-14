@@ -56,7 +56,7 @@ Save time by generating the authentication URL, default provider is docker:
         !!! note ""
             **The OAuth URL was obtained successfully!**
 
-            <u>https://login.docker.com/authorize/?client_id=XXXXXX&nonce=XXXXXX&redirect_uri=XXXXXX&response_type=code&scope=XXXXXX&state=XXXXXX</u>
+            <u style='word-wrap: break-word'>https://login.docker.com/authorize/?client_id=XXXXXX&nonce=XXXXXX&redirect_uri=XXXXXX&response_type=code&scope=XXXXXX&state=XXXXXX</u>
 
             **Follow these steps:**
 
