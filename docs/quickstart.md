@@ -62,7 +62,7 @@ Save time by generating the authentication URL, default provider is docker:
 
             1. Open the OAuth URL in your browser to authenticate.
             2. When authenticated, copy the cookie value named `id`, you may need to use DevTools.
-            3. Set the token typing in your terminal: doky token <TOKEN>
+            3. Set the token typing in your terminal: **doky auth token <TOKEN>**
 
     === "Python"
         **Code:**
