@@ -83,7 +83,7 @@ def oauth(provider: str):
         '  2. When authenticated, copy the cookie value named \'id\', '
         'you may need to use DevTools.\n'
         '  3. Set the token typing in your terminal: '
-        '[b]doky token[/b] <TOKEN>\n'
+        '[b]doky auth token[/b] <TOKEN>\n'
     )
 
     # Showing successful text.
