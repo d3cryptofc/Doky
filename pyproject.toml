@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "doky"
-version = "1.0.1"
+version = "1.0.2"
 description = "Doky is a intuitive library and CLI tool for manage your Docker-In-Docker instances from Play With Docker Lab"
 repository = "https://github.com/d3cryptofc/Doky"
 authors = ["Lelzin λ <d3cryptofc@gmail.com>"]
